@@ -6,6 +6,9 @@ stages:
   - build
   - deploy
 
+variables:
+  DIST: "./dist/chronos"
+
 install:
   stage: prepare
   script:
@@ -42,8 +45,8 @@ deploy_prod:
   stage: deploy
   script:
     - yarn global add surge
-    - cp dist/index.html dist/200.html
-    - surge --domain chronos.surge.sh ./dist
+    - cp $DIST/index.html $DIST/200.html
+    - surge --domain chronos.surge.sh $DIST
   only:
     - tags
 
@@ -51,7 +54,7 @@ deploy_dev:
   stage: deploy
   script:
     - yarn global add surge
-    - cp dist/index.html dist/200.html
-    - surge --domain chronos-dev.surge.sh ./dist
+    - cp $DIST/index.html $DIST/200.html
+    - surge --domain chronos-dev.surge.sh $DIST
   except:
     - tags
