@@ -1,0 +1,57 @@
+image: node:9
+
+stages:
+  - prepare
+  - test
+  - build
+  - deploy
+
+install:
+  stage: prepare
+  script:
+    - yarn install --pure-lockfile --cache-folder .yarn-cache
+  artifacts:
+    expire_in: 7d
+    paths:
+      - node_modules
+  cache:
+    untracked: true
+    key: "$CI_PROJECT_ID"
+    paths:
+      - .yarn-cache
+
+test:
+  stage: test
+  script:
+    - yarn test:ci
+
+lint:
+  stage: test
+  script:
+    - yarn lint
+
+build:
+  stage: build
+  script:
+    - yarn build
+  artifacts:
+    paths:
+    - dist/
+
+deploy_prod:
+  stage: deploy
+  script:
+    - yarn global add surge
+    - cp dist/index.html dist/200.html
+    - surge --domain chronos.surge.sh ./dist
+  only:
+    - tags
+
+deploy_dev:
+  stage: deploy
+  script:
+    - yarn global add surge
+    - cp dist/index.html dist/200.html
+    - surge --domain chronos-dev.surge.sh ./dist
+  except:
+    - tags
