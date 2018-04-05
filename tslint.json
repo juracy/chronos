@@ -57,6 +57,7 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
+    "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
@@ -73,6 +74,7 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
+    "no-unused-variable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -117,7 +119,9 @@
       "check-separator",
       "check-type"
     ],
-    "no-output-on-prefix": true,
+
+    "directive-selector": [true, "attribute", "chronos", "camelCase"],
+    "component-selector": [true, "element", "chronos", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
