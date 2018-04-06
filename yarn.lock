@@ -298,6 +298,10 @@
   version "9.6.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.2.tgz#e49ac1adb458835e95ca6487bc20f916b37aff23"
 
+"@types/numeral@^0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@types/numeral/-/numeral-0.0.22.tgz#86bef1f0a2d743afdc2ef3168d45f2905e1a0b93"
+
 "@types/q@^0.0.32":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
@@ -4397,6 +4401,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
+numeral@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/numeral/-/numeral-2.0.6.tgz#4ad080936d443c2561aed9f2197efffe25f4e506"
+
 nwmatcher@^1.4.3:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/nwmatcher/-/nwmatcher-1.4.4.tgz#2285631f34a95f0d0395cd900c96ed39b58f346e"
@@ -6193,8 +6201,8 @@ tslint@~5.9.1:
     tsutils "^2.12.1"
 
 tsutils@^2.12.1:
-  version "2.26.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.26.0.tgz#706240d63bcf1ae1797d1716738d6c6be0d0848b"
+  version "2.26.1"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.26.1.tgz#9e4a0cb9ff173863f34c22a961969081270d1878"
   dependencies:
     tslib "^1.8.1"
 

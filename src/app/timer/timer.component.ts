@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs/Subscription'
 import { timer } from 'rxjs/observable/timer'
 import { tap, takeWhile, finalize } from 'rxjs/operators'
 
+import * as numeral from 'numeral'
+
 @Component({
   selector: 'chronos-timer',
   templateUrl: './timer.component.html',
@@ -31,8 +33,8 @@ export class TimerComponent {
   }
 
   format(duration: number) {
-    const minutes = Math.trunc(duration / 60)
-    const seconds = duration % 60
+    const minutes = numeral(Math.trunc(duration / 60)).format('00')
+    const seconds = numeral(duration % 60).format('00')
 
     return `${minutes}:${seconds}`
   }

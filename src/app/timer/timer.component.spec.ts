@@ -24,9 +24,8 @@ describe('TimerComponent', () => {
   })
 
   it('should format timer', () => {
-    // FIXME: That's wrong!
-    expect(component.format(60)).toEqual('1:0')
-    expect(component.format(0)).toEqual('0:0')
+    expect(component.format(60)).toEqual('01:00')
+    expect(component.format(0)).toEqual('00:00')
   })
 
   it('should change running perfectly', () => {
@@ -50,6 +49,6 @@ describe('TimerComponent', () => {
     expect(component.current.value).toEqual('01:00')
     component.start()
     jest.runTimersToTime(1000)
-    expect(component.current.value).toEqual('0:59')
+    expect(component.current.value).toEqual('00:59')
   })
 })
