@@ -3,8 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core'
 
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
 import { MaterialModule } from './material/material.module'
+import { TimerModule } from './timer/timer.module'
+
+import { AppComponent } from './app.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { MaterialModule } from './material/material.module'
     AppRoutingModule,
 
     MaterialModule,
+    TimerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
