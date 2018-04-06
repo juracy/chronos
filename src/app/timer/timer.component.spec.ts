@@ -50,5 +50,7 @@ describe('TimerComponent', () => {
     component.start()
     jest.runTimersToTime(1000)
     expect(component.current.value).toEqual('00:59')
+    jest.runTimersToTime(58000)
+    expect(component.current.value).toEqual('00:01')
   })
 })
