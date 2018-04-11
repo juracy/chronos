@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core'
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 import { AppRoutingModule } from './app-routing.module'
 import { MaterialModule } from './material/material.module'
@@ -14,6 +15,8 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects'
 
+import { environment } from '../environments/environment'
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,6 +25,7 @@ import { AppEffects } from './app.effects'
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
 
     MaterialModule,
     TimerModule,
