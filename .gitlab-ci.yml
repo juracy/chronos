@@ -7,7 +7,7 @@ stages:
   - deploy
 
 variables:
-  DIST: "./dist/chronos"
+  DIST: "./dist"
 
 install:
   stage: prepare
