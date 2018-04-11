@@ -8,7 +8,7 @@ import { TimerEffects } from './timer.effects'
 import { reducers, metaReducers, AppState } from '../reducers'
 
 describe('TimerService', () => {
-  const actions$: Observable<any> = null
+  const actions: Observable<any> = null
   let effects: TimerEffects
   let store: Store<AppState>
 
@@ -19,7 +19,7 @@ describe('TimerService', () => {
       ],
       providers: [
         TimerEffects,
-        provideMockActions(() => actions$)
+        provideMockActions(() => actions)
       ]
     })
 
