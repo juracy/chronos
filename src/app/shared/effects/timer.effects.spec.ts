@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable'
 
 import { StoreModule, Store } from '@ngrx/store'
 
-import { TimerEffects } from './timer.effects'
 import { reducers, metaReducers, AppState } from '../reducers'
+import { TimerEffects } from './timer.effects'
 
 describe('TimerService', () => {
   const actions: Observable<any> = null

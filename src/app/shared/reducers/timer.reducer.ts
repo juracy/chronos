@@ -21,7 +21,7 @@ export function timerReducer(state = initialState, action: TimerActions): TimerS
       return { running: action.running, timestamp: action.timestamp, tic: state.tic + 1 }
 
     case TimerActionTypes.TimerStop:
-     return { running: action.running, timestamp: action.timestamp, tic: state.tic }
+      return { running: action.running, timestamp: action.timestamp, tic: state.tic }
 
     default:
       return state

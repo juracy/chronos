@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { StoreModule, Store } from '@ngrx/store'
 
-import { TimerComponent } from './timer.component'
 import { reducers, metaReducers, AppState } from '../shared/reducers'
+import { TimerComponent } from './timer.component'
 
 describe('TimerComponent', () => {
   let component: TimerComponent
