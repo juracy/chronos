@@ -1,10 +1,12 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core'
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
-import { Subscription } from 'rxjs/Subscription'
-import { timer } from 'rxjs/observable/timer'
-import { tap, takeWhile, finalize } from 'rxjs/operators'
+import { Observable } from 'rxjs/Observable'
 
+import { Store } from '@ngrx/store'
 import * as numeral from 'numeral'
+
+import { TimerStart, TimerStop } from '../shared/actions/timer.actions'
+import { TimerState } from '../shared/reducers/timer.reducer'
+import { AppState } from '../shared/reducers'
 
 @Component({
   selector: 'chronos-timer',
@@ -13,23 +15,18 @@ import * as numeral from 'numeral'
 })
 export class TimerComponent {
   slot = 1 * 60
-  current = new BehaviorSubject<string>('01:00')
-  running = new BehaviorSubject<boolean>(false)
-  // TODO: Should be private (even it's necessary for tests)?
-  currentSubscription: Subscription
+  timer: Observable<TimerState>
+
+  constructor(private store: Store<AppState>) {
+    this.timer = this.store.select(state => state.timer)
+  }
 
   start() {
-    this.running.next(true)
-    this.currentSubscription = timer(0, 1000).pipe(
-      tap(x => this.current.next(this.format(this.slot - x))),
-      takeWhile(x => x < this.slot),
-      finalize(() => this.running.next(false))
-    ).subscribe()
+    this.store.dispatch(new TimerStart())
   }
 
   stop() {
-    this.running.next(false)
-    this.currentSubscription.unsubscribe()
+    this.store.dispatch(new TimerStop())
   }
 
   format(duration: number) {

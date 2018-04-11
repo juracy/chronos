@@ -1,17 +1,17 @@
 <div fxLayoutAlign="center center" style="font-size: 10rem">
-  <div>{{ current | async }}</div>
+  <div>{{ (timer | async).tic }}</div>
 </div>
 
 <div fxLayoutAlign="space-around center">
   <button
     mat-button
     color="primary"
-    [disabled]="running | async"
+    [disabled]="(timer | async)?.running"
     (click)="start()">Start</button>
 
   <button
     mat-button
     color="warn"
-    [disabled]="!(running | async)"
+    [disabled]="!(timer | async)?.running"
     (click)="stop()">Stop</button>
 </div>

@@ -1,20 +1,30 @@
 import { TestBed, async } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 
+import { StoreModule, Store } from '@ngrx/store'
+
 import { AppComponent } from './app.component'
 import { TimerModule } from './timer/timer.module'
+import { reducers, metaReducers, AppState } from './shared/reducers'
 
 describe('AppComponent', () => {
+  let store: Store<AppState>
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         TimerModule,
+        StoreModule.forRoot(reducers, { metaReducers }),
       ],
       declarations: [
         AppComponent,
       ],
     }).compileComponents()
+
+    store = TestBed.get(Store)
+
+    spyOn(store, 'dispatch').and.callThrough()
   }))
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent)

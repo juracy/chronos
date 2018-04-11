@@ -12,10 +12,12 @@ import { MaterialModule } from './material/material.module'
 import { TimerModule } from './timer/timer.module'
 
 import { AppComponent } from './app.component'
-import { reducers, metaReducers } from './reducers'
+import { reducers, metaReducers } from './shared/reducers'
 import { AppEffects } from './app.effects'
 
 import { environment } from '../environments/environment'
+import * as fromTimer from './shared/reducers/timer.reducer'
+import { TimerEffects } from './shared/effects/timer.effects'
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { environment } from '../environments/environment'
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
+    StoreModule.forFeature('timer', fromTimer.timerReducer),
+    EffectsModule.forFeature([TimerEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
