@@ -25,9 +25,10 @@ export class TimerEffects {
   @Effect({ dispatch: false })
   tic = this.actions.pipe(
     ofType(TimerActionTypes.TimerTic),
-    withLatestFrom(this.store.select(s => s.timer)),
-    tap(([action, timerState]) => console.log(action.type, timerState.tic)),
-    filter(([action, timerState]) => timerState.tic >= 5),
+    withLatestFrom(this.store),
+    tap(([action, appState]) => console.log(action.type, appState.timer.tic)),
+    // TODO: Congelar
+    filter(([action, appState]) => appState.timer.tic >= appState.config.slot),
     tap(() => this.store.dispatch(new TimerStop())),
   )
 

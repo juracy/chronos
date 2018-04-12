@@ -1,5 +1,5 @@
 <div fxLayoutAlign="center center" style="font-size: 10rem">
-  <div>{{ (timer | async).tic | formatTimer }}</div>
+  <div>{{ (config | async).slot - (timer | async).tic | formatTimer }}</div>
 </div>
 
 <div fxLayoutAlign="space-around center">

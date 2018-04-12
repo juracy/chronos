@@ -16,6 +16,8 @@ import { AppComponent } from './app.component'
 import { AppEffects } from './app.effects'
 import { reducers, metaReducers } from './shared/reducers'
 import { timerReducer } from './shared/reducers/timer.reducer'
+import { configReducer } from './shared/config/config.reducer'
+import { ConfigEffects } from './shared/config/config.effects'
 
 @NgModule({
   declarations: [
@@ -31,8 +33,9 @@ import { timerReducer } from './shared/reducers/timer.reducer'
     TimerModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AppEffects]),
     StoreModule.forFeature('timer', timerReducer),
+    StoreModule.forFeature('config', configReducer),
+    EffectsModule.forRoot([AppEffects, ConfigEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
