@@ -1,10 +1,10 @@
+import { Component } from '@angular/core'
 import { TestBed, async } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 
 import { StoreModule, Store } from '@ngrx/store'
 
 import { AppComponent } from './app.component'
-import { TimerModule } from './timer/timer.module'
 import { reducers, metaReducers, AppState } from './shared/reducers'
 
 describe('AppComponent', () => {
@@ -14,11 +14,11 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        TimerModule,
         StoreModule.forRoot(reducers, { metaReducers }),
       ],
       declarations: [
         AppComponent,
+        Component({selector: 'chronos-timer', template: ''}) (class MockTimerComponent { }),
       ],
     }).compileComponents()
 
