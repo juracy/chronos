@@ -16,7 +16,6 @@ import { AppComponent } from './app.component'
 import { AppEffects } from './app.effects'
 import { reducers, metaReducers } from './shared/reducers'
 import { timerReducer } from './shared/reducers/timer.reducer'
-import { TimerEffects } from './shared/effects/timer.effects'
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { TimerEffects } from './shared/effects/timer.effects'
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
     StoreModule.forFeature('timer', timerReducer),
-    EffectsModule.forFeature([TimerEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
