@@ -1,19 +1,32 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
+import { StoreModule, Store } from '@ngrx/store'
+
+import { reducers, metaReducers, AppState } from '../shared/reducers'
 import { TimerComponent } from './timer.component'
+import { FormatTimerPipe } from './format-timer.pipe'
 
 describe('TimerComponent', () => {
   let component: TimerComponent
   let fixture: ComponentFixture<TimerComponent>
+  let store: Store<AppState>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimerComponent ]
+      declarations: [
+        TimerComponent,
+        FormatTimerPipe,
+      ],
+      imports: [
+        StoreModule.forRoot(reducers, { metaReducers }),
+      ],
     })
     .compileComponents()
   }))
 
   beforeEach(() => {
+    store = TestBed.get(Store)
+
     fixture = TestBed.createComponent(TimerComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
@@ -23,32 +36,22 @@ describe('TimerComponent', () => {
     expect(component).toBeTruthy()
   })
 
-  it('should format timer', () => {
-    expect(component.format(60)).toEqual('01:00')
-    expect(component.format(0)).toEqual('00:00')
-  })
 
-  it('should change running perfectly', () => {
-    expect(component.running.value).toBeFalsy()
-    component.start()
-    expect(component.running.value).toBeTruthy()
-    component.stop()
-    expect(component.running.value).toBeFalsy()
-  })
+  describe('should dispact actions', () => {
+    let actionDispatched: string
 
-  it('should monitor subscription', () => {
-    expect(component.currentSubscription).toBeUndefined()
-    component.start()
-    expect(component.currentSubscription.closed).toBeFalsy()
-    component.stop()
-    expect(component.currentSubscription.closed).toBeTruthy()
-  })
+    beforeEach(() => {
+      spyOn(store, 'dispatch').and.callFake(action => action = actionDispatched = action.type)
+    })
 
-  it('should decrease timer', () => {
-    jest.useFakeTimers()
-    expect(component.current.value).toEqual('01:00')
-    component.start()
-    jest.runTimersToTime(1000)
-    expect(component.current.value).toEqual('00:59')
+    it('timer start', () => {
+      component.start()
+      expect(actionDispatched).toEqual('[Timer] Start')
+    })
+
+    it('timer stop', () => {
+      component.stop()
+      expect(actionDispatched).toEqual('[Timer] Stop')
+    })
   })
 })

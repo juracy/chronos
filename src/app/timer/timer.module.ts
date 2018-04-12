@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 
 import { MaterialModule } from '../material/material.module'
 import { TimerComponent } from './timer.component'
+import { FormatTimerPipe } from './format-timer.pipe'
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { TimerComponent } from './timer.component'
   ],
   declarations: [
     TimerComponent,
+    FormatTimerPipe,
   ],
   exports: [
     TimerComponent,
