@@ -4,6 +4,7 @@ import { StoreModule, Store } from '@ngrx/store'
 
 import { reducers, metaReducers, AppState } from '../shared/reducers'
 import { TimerComponent } from './timer.component'
+import { FormatTimerPipe } from './format-timer.pipe'
 
 describe('TimerComponent', () => {
   let component: TimerComponent
@@ -12,7 +13,10 @@ describe('TimerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimerComponent ],
+      declarations: [
+        TimerComponent,
+        FormatTimerPipe,
+      ],
       imports: [
         StoreModule.forRoot(reducers, { metaReducers }),
       ],
@@ -32,10 +36,6 @@ describe('TimerComponent', () => {
     expect(component).toBeTruthy()
   })
 
-  it('should format timer', () => {
-    expect(component.format(60)).toEqual('01:00')
-    expect(component.format(0)).toEqual('00:00')
-  })
 
   describe('should dispact actions', () => {
     let actionDispatched: string

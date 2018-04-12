@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 
 import { Store } from '@ngrx/store'
-import * as numeral from 'numeral'
 
 import { TimerStart, TimerStop } from '../shared/actions/timer.actions'
 import { TimerState } from '../shared/reducers/timer.reducer'
@@ -27,12 +26,5 @@ export class TimerComponent {
 
   stop() {
     this.store.dispatch(new TimerStop())
-  }
-
-  format(duration: number) {
-    const minutes = numeral(Math.trunc(duration / 60)).format('00')
-    const seconds = numeral(duration % 60).format('00')
-
-    return `${minutes}:${seconds}`
   }
 }
