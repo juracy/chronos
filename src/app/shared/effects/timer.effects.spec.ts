@@ -1,14 +1,16 @@
 import { TestBed } from '@angular/core/testing'
 import { provideMockActions } from '@ngrx/effects/testing'
 import { Observable } from 'rxjs/Observable'
+import { ReplaySubject } from 'rxjs/ReplaySubject'
 
 import { StoreModule, Store } from '@ngrx/store'
 
 import { reducers, metaReducers, AppState } from '../reducers'
 import { TimerEffects } from './timer.effects'
+import { TimerStart } from '../actions/timer.actions'
 
 describe('TimerService', () => {
-  const actions: Observable<any> = null
+  let actions: ReplaySubject<any> = null
   let effects: TimerEffects
   let store: Store<AppState>
 
@@ -19,17 +21,28 @@ describe('TimerService', () => {
       ],
       providers: [
         TimerEffects,
-        provideMockActions(() => actions)
-      ]
+        provideMockActions(() => actions),
+      ],
     })
 
     effects = TestBed.get(TimerEffects)
     store = TestBed.get(Store)
-
-    spyOn(store, 'dispatch').and.callThrough()
   })
 
   it('should be created', () => {
     expect(effects).toBeTruthy()
+  })
+
+  it('should emit tic one per second', () => {
+    jest.useFakeTimers()
+    actions = new ReplaySubject(1)
+    actions.next(new TimerStart())
+    store.dispatch(new TimerStart())
+    const lista = []
+    spyOn(store, 'dispatch').and.callFake((x) => lista.push(x))
+    effects.start.subscribe()
+
+    jest.runTimersToTime(2000)
+    expect(lista.length).toEqual(2)
   })
 })
