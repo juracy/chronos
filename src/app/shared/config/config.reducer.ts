@@ -1,10 +1,12 @@
 import { ConfigActions, ConfigActionTypes } from './config.actions'
 
 export interface ConfigState {
+  times: number
   slot: number
 }
 
 export const initialState: ConfigState = {
+  times: 1,
   slot: 25 * 60
 }
 

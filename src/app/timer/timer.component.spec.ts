@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { StoreModule, Store } from '@ngrx/store'
 
 import { reducers, metaReducers, AppState } from '../shared/reducers'
+import { ConfigSet } from '../shared/config/config.actions'
 import { TimerComponent } from './timer.component'
 import { FormatTimerPipe } from './format-timer.pipe'
 
@@ -38,20 +39,27 @@ describe('TimerComponent', () => {
 
 
   describe('should dispact actions', () => {
-    let actionDispatched: string
+    let actionDispatched: any
 
     beforeEach(() => {
-      spyOn(store, 'dispatch').and.callFake(action => action = actionDispatched = action.type)
+      spyOn(store, 'dispatch').and.callFake(action => actionDispatched = action)
     })
 
     it('timer start', () => {
       component.start()
-      expect(actionDispatched).toEqual('[Timer] Start')
+      expect(actionDispatched.type).toEqual('[Timer] Start')
     })
 
     it('timer stop', () => {
       component.stop()
-      expect(actionDispatched).toEqual('[Timer] Stop')
+      expect(actionDispatched.type).toEqual('[Timer] Stop')
+    })
+
+    it('change times', () => {
+      component.newMultiplier(1)
+      expect(actionDispatched.type).toEqual('[Config] Set')
+      expect((actionDispatched as ConfigSet).key).toEqual('times')
+      expect((actionDispatched as ConfigSet).value).toEqual(1)
     })
   })
 })

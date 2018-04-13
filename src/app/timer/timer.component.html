@@ -1,5 +1,5 @@
 <div fxLayoutAlign="center center" style="font-size: 10rem">
-  <div>{{ (config | async).slot - (timer | async).tic | formatTimer }}</div>
+  <div>{{ (totalTime | async) - (timer | async).tic | formatTimer }}</div>
 </div>
 
 <div fxLayoutAlign="space-around center">
@@ -14,4 +14,26 @@
     color="warn"
     [disabled]="!(timer | async)?.running"
     (click)="stop()">Stop</button>
+</div>
+
+<div fxLayoutAlign="space-around center">
+  <button
+    mat-button
+    [disabled]="(timer | async)?.running"
+    (click)="newMultiplier(1/300)">Test</button>
+
+  <button
+    mat-button
+    [disabled]="(timer | async)?.running"
+    (click)="newMultiplier(1/2)">Half</button>
+
+  <button
+    mat-button
+    [disabled]="(timer | async)?.running"
+    (click)="newMultiplier(1)">Full</button>
+
+  <button
+    mat-button
+    [disabled]="(timer | async)?.running"
+    (click)="newMultiplier(2)">Double</button>
 </div>

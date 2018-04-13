@@ -1,12 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
+import { map } from 'rxjs/operators'
 
 import { Store } from '@ngrx/store'
 
 import { TimerStart, TimerStop } from '../shared/actions/timer.actions'
 import { TimerState } from '../shared/reducers/timer.reducer'
 import { AppState } from '../shared/reducers'
-import { ConfigState } from '../shared/config/config.reducer'
+import { ConfigSet } from '../shared/config/config.actions'
 
 @Component({
   selector: 'chronos-timer',
@@ -14,12 +15,14 @@ import { ConfigState } from '../shared/config/config.reducer'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TimerComponent {
-  config: Observable<ConfigState>
+  totalTime: Observable<number>
   timer: Observable<TimerState>
 
   constructor(private store: Store<AppState>) {
     this.timer = this.store.select(state => state.timer)
-    this.config = this.store.select(state => state.config)
+    this.totalTime = this.store.select(state => state.config).pipe(
+      map(x => x.slot * x.times),
+    )
   }
 
   start() {
@@ -28,5 +31,9 @@ export class TimerComponent {
 
   stop() {
     this.store.dispatch(new TimerStop())
+  }
+
+  newMultiplier(times: number) {
+    this.store.dispatch(new ConfigSet('times', times))
   }
 }
