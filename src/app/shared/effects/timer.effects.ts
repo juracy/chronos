@@ -36,7 +36,19 @@ export class TimerEffects {
   stop = this.actions.pipe(
     ofType(TimerActionTypes.TimerStop),
     tap((x) => console.log(x.type)),
+    tap(() => this.play()),
   )
 
-  constructor(private actions: Actions, private store: Store<AppState>) {}
+  // https://stackoverflow.com/questions/44883501/play-sound-in-angular-4
+  private alarm = new Audio()
+
+  constructor(private actions: Actions, private store: Store<AppState>) {
+    this.alarm.src = '/assets/mp3/alarm.mp3'
+  }
+
+  play() {
+    // TODO: Melhoria para tocar o mesmo áudio várias vezes sem recarregar
+    this.alarm.load()
+    this.alarm.play()
+  }
 }
