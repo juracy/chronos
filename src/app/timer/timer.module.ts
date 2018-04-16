@@ -9,11 +9,13 @@ import { TimerComponent } from './timer.component'
 import { OptionsComponent } from './options.component'
 import { TitleComponent } from './title.component'
 import { FormatTimerPipe } from './format-timer.pipe'
+import { ControlsComponent } from './controls.component'
 
 const components = [
   TimerComponent,
   OptionsComponent,
   TitleComponent,
+  ControlsComponent,
 ]
 
 @NgModule({

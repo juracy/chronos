@@ -1,0 +1,13 @@
+<div fxLayoutAlign="space-around center">
+  <button
+    mat-button
+    color="primary"
+    [disabled]="(timer | async)?.running"
+    (click)="start()">Start</button>
+
+  <button
+    mat-button
+    color="warn"
+    [disabled]="!(timer | async)?.running"
+    (click)="stop()">Stop</button>
+</div>

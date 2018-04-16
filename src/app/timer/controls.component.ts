@@ -1,25 +1,29 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
-import { map } from 'rxjs/operators'
 
 import { Store } from '@ngrx/store'
 
-import { TimerState } from '../shared/reducers/timer.reducer'
 import { AppState } from '../shared/reducers'
+import { TimerState } from '../shared/reducers/timer.reducer'
+import { TimerStart, TimerStop } from '../shared/actions/timer.actions'
 
 @Component({
-  selector: 'chronos-timer',
-  templateUrl: './timer.component.html',
+  selector: 'chronos-controls',
+  templateUrl: './controls.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TimerComponent {
-  totalTime: Observable<number>
+export class ControlsComponent {
   timer: Observable<TimerState>
 
   constructor(private store: Store<AppState>) {
     this.timer = this.store.select(state => state.timer)
-    this.totalTime = this.store.select(state => state.config).pipe(
-      map(x => x.slot * x.times),
-    )
+  }
+
+  start() {
+    this.store.dispatch(new TimerStart())
+  }
+
+  stop() {
+    this.store.dispatch(new TimerStop())
   }
 }

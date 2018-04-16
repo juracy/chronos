@@ -19,6 +19,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         Component({selector: 'chronos-timer', template: ''}) (class MockTimerComponent { }),
+        Component({selector: 'chronos-controls', template: ''}) (class MockControlsComponent { }),
         Component({selector: 'chronos-options', template: ''}) (class MockOptionsComponent { }),
         Component({selector: 'chronos-title', template: 'Chronos Logger'}) (class MockTitleComponent { }),
       ],
