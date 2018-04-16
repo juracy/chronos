@@ -7,11 +7,13 @@ import { MaterialModule } from '../material/material.module'
 import { TimerEffects } from '../shared/effects/timer.effects'
 import { TimerComponent } from './timer.component'
 import { OptionsComponent } from './options.component'
+import { TitleComponent } from './title.component'
 import { FormatTimerPipe } from './format-timer.pipe'
 
 const components = [
   TimerComponent,
   OptionsComponent,
+  TitleComponent,
 ]
 
 @NgModule({

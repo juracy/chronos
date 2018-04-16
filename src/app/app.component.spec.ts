@@ -20,6 +20,7 @@ describe('AppComponent', () => {
         AppComponent,
         Component({selector: 'chronos-timer', template: ''}) (class MockTimerComponent { }),
         Component({selector: 'chronos-options', template: ''}) (class MockOptionsComponent { }),
+        Component({selector: 'chronos-title', template: 'Chronos Logger'}) (class MockTitleComponent { }),
       ],
     }).compileComponents()
 
