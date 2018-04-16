@@ -35,7 +35,9 @@ export class TimerEffects {
   @Effect({ dispatch: false })
   stop = this.actions.pipe(
     ofType(TimerActionTypes.TimerStop),
-    tap((x) => console.log(x.type)),
+    withLatestFrom(this.store),
+    tap(([action, appState]) => console.log(action.type)),
+    filter(([action, appState]) => appState.config.sound),
     tap(() => this.play()),
   )
 

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { MatButtonModule } from '@angular/material'
+import { MatButtonModule, MatSlideToggleModule } from '@angular/material'
 import { FlexLayoutModule } from '@angular/flex-layout'
 
 const resources = [
   MatButtonModule,
+  MatSlideToggleModule,
 ]
 
 @NgModule({

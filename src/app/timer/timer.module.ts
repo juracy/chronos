@@ -5,9 +5,14 @@ import { EffectsModule } from '@ngrx/effects'
 
 import { MaterialModule } from '../material/material.module'
 import { TimerEffects } from '../shared/effects/timer.effects'
-
 import { TimerComponent } from './timer.component'
+import { OptionsComponent } from './options.component'
 import { FormatTimerPipe } from './format-timer.pipe'
+
+const components = [
+  TimerComponent,
+  OptionsComponent,
+]
 
 @NgModule({
   imports: [
@@ -16,11 +21,12 @@ import { FormatTimerPipe } from './format-timer.pipe'
     EffectsModule.forFeature([TimerEffects]),
   ],
   declarations: [
-    TimerComponent,
+    FormatTimerPipe,
+    ... components,
+  ],
+  providers: [
     FormatTimerPipe,
   ],
-  exports: [
-    TimerComponent,
-  ]
+  exports: components,
 })
 export class TimerModule { }
