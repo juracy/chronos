@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Actions, Effect, ofType } from '@ngrx/effects'
-import { tap, concatMap, takeWhile, withLatestFrom, filter } from 'rxjs/operators'
+import { tap, concatMap, takeWhile, withLatestFrom, filter, map } from 'rxjs/operators'
 import { timer } from 'rxjs/observable/timer'
 
 import { Store } from '@ngrx/store'
@@ -11,7 +11,7 @@ import { AppState } from '../reducers'
 @Injectable()
 export class TimerEffects {
 
-  @Effect({ dispatch: false })
+  @Effect()
   start = this.actions.pipe(
     ofType(TimerActionTypes.TimerStart),
     tap((x) => console.log(x.type)),
@@ -19,17 +19,17 @@ export class TimerEffects {
       withLatestFrom(this.store),
       takeWhile(([timer_tic, store]) => store.timer.running),
     )),
-    tap(x => this.store.dispatch(new TimerTic())),
+    map(() => new TimerTic()),
   )
 
-  @Effect({ dispatch: false })
+  @Effect()
   tic = this.actions.pipe(
     ofType(TimerActionTypes.TimerTic),
     withLatestFrom(this.store),
     tap(([action, appState]) => console.log(action.type, appState.timer.tic)),
     // TODO: Congelar
     filter(([action, appState]) => appState.timer.tic >= appState.config.slot * appState.config.times),
-    tap(() => this.store.dispatch(new TimerStop())),
+    map(() => new TimerStop()),
   )
 
   @Effect({ dispatch: false })

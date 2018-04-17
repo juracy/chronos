@@ -38,10 +38,10 @@ describe('TimerService', () => {
     actions.next(new TimerStart())
     store.dispatch(new TimerStart())
     const lista = []
-    spyOn(store, 'dispatch').and.callFake((x) => lista.push(x))
-    effects.start.subscribe()
+    // spyOn(store, 'dispatch').and.callFake((x) => lista.push(x))
+    effects.start.subscribe(action => lista.push(action.type))
 
     jest.runTimersToTime(2000)
-    expect(lista.length).toEqual(2)
+    expect(lista).toEqual(['[Timer] Tic', '[Timer] Tic'])
   })
 })
