@@ -22,6 +22,14 @@
         "type": "npm",
         "script": "lint",
         "problemMatcher": []
+      },
+      {
+        "type": "npm",
+        "script": "start",
+        "problemMatcher": [
+          "$tsc-watch"
+        ],
+        "isBackground": true
       }
     ]
   }
