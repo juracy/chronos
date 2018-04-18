@@ -1,23 +1,19 @@
-<div fxLayoutAlign="space-around center">
-  <button
-    mat-button
-    [disabled]="(timer | async)?.running"
-    (click)="newMultiplier(1/300)">Test</button>
+<div fxLayoutAlign="space-between center">
 
-  <button
-    mat-button
-    [disabled]="(timer | async)?.running"
-    (click)="newMultiplier(1/2)">Half</button>
-
-  <button
-    mat-button
-    [disabled]="(timer | async)?.running"
-    (click)="newMultiplier(1)">Full</button>
-
-  <button
-    mat-button
-    [disabled]="(timer | async)?.running"
-    (click)="newMultiplier(2)">Double</button>
+  <mat-button-toggle-group [disabled]="(timer | async)?.running" (change)="newMultiplier($event.value)" [value]="1">
+    <mat-button-toggle [value]="1/300">
+      Test
+    </mat-button-toggle>
+    <mat-button-toggle [value]="1/2">
+      Half
+    </mat-button-toggle>
+    <mat-button-toggle [value]="1">
+      Full
+    </mat-button-toggle>
+    <mat-button-toggle [value]="2">
+      Double
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 
   <mat-slide-toggle [checked]="sound | async" (change)="changeSound($event)">Alarme habilitado?</mat-slide-toggle>
 </div>
