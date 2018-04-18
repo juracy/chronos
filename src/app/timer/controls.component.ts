@@ -10,6 +10,7 @@ import { TimerStart, TimerStop } from '../shared/actions/timer.actions'
 @Component({
   selector: 'chronos-controls',
   templateUrl: './controls.component.html',
+  styleUrls: ['./controls.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ControlsComponent {
