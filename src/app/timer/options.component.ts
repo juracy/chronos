@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store'
 import { AppState } from '../shared/reducers'
 import { ConfigSet } from '../shared/config/config.actions'
 import { TimerState } from '../shared/reducers/timer.reducer'
-import { TimerReset } from '../shared/actions/timer.actions';
+import { TimerReset } from '../shared/actions/timer.actions'
 
 @Component({
   selector: 'chronos-options',

@@ -5,7 +5,7 @@ import { timer } from 'rxjs/observable/timer'
 
 import { Store } from '@ngrx/store'
 
-import { TimerActionTypes, TimerTic, TimerStop, TimerOver } from '../actions/timer.actions'
+import { TimerActionTypes, TimerTic, TimerOver } from '../actions/timer.actions'
 import { AppState } from '../reducers'
 
 @Injectable()
