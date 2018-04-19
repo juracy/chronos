@@ -14,13 +14,15 @@ export const initialState: TimerState = {
 
 export function timerReducer(state = initialState, action: TimerActions): TimerState {
   switch (action.type) {
-    case TimerActionTypes.TimerStart:
+    case TimerActionTypes.TimerReset:
       return { running: action.running, timestamp: action.timestamp, tic: 0 }
 
     case TimerActionTypes.TimerTic:
       return { running: action.running, timestamp: action.timestamp, tic: state.tic + 1 }
 
+    case TimerActionTypes.TimerStart:
     case TimerActionTypes.TimerStop:
+    case TimerActionTypes.TimerOver:
       return { running: action.running, timestamp: action.timestamp, tic: state.tic }
 
     default:

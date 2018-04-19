@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { Store, StoreModule } from '@ngrx/store'
+import { Store, StoreModule, Action } from '@ngrx/store'
 
 import { AppState, reducers, metaReducers } from '../shared/reducers'
 import { MaterialModule } from '../material/material.module'
@@ -35,20 +35,21 @@ describe('ControlsComponent', () => {
   })
 
   describe('should dispact actions', () => {
-    let actionDispatched: any
+    let actionsDispatched: Action[]
 
     beforeEach(() => {
-      spyOn(store, 'dispatch').and.callFake(action => actionDispatched = action)
+      actionsDispatched = []
+      spyOn(store, 'dispatch').and.callFake(action => actionsDispatched.push(action))
     })
 
     it('timer start', () => {
       component.start()
-      expect(actionDispatched.type).toEqual('[Timer] Start')
+      expect(actionsDispatched[1].type).toEqual('[Timer] Start')
     })
 
     it('timer stop', () => {
       component.stop()
-      expect(actionDispatched.type).toEqual('[Timer] Stop')
+      expect(actionsDispatched[0].type).toEqual('[Timer] Stop')
     })
   })
 })

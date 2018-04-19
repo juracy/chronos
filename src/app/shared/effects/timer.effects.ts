@@ -5,7 +5,7 @@ import { timer } from 'rxjs/observable/timer'
 
 import { Store } from '@ngrx/store'
 
-import { TimerActionTypes, TimerTic, TimerStop } from '../actions/timer.actions'
+import { TimerActionTypes, TimerTic, TimerStop, TimerOver } from '../actions/timer.actions'
 import { AppState } from '../reducers'
 
 @Injectable()
@@ -29,12 +29,12 @@ export class TimerEffects {
     tap(([action, appState]) => console.log(action.type, appState.timer.tic)),
     // TODO: Congelar
     filter(([action, appState]) => appState.timer.tic >= appState.config.slot * appState.config.times),
-    map(() => new TimerStop()),
+    map(() => new TimerOver()),
   )
 
   @Effect({ dispatch: false })
   stop = this.actions.pipe(
-    ofType(TimerActionTypes.TimerStop),
+    ofType(TimerActionTypes.TimerOver),
     withLatestFrom(this.store),
     tap(([action, appState]) => console.log(action.type)),
     filter(([action, appState]) => appState.config.sound),

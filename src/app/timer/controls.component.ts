@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store'
 
 import { AppState } from '../shared/reducers'
 import { TimerState } from '../shared/reducers/timer.reducer'
-import { TimerStart, TimerStop } from '../shared/actions/timer.actions'
+import { TimerStart, TimerStop, TimerReset } from '../shared/actions/timer.actions'
 
 @Component({
   selector: 'chronos-controls',
@@ -21,6 +21,7 @@ export class ControlsComponent {
   }
 
   start() {
+    this.store.dispatch(new TimerReset())
     this.store.dispatch(new TimerStart())
   }
 

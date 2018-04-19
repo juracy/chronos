@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { StoreModule, Store } from '@ngrx/store'
+import { StoreModule, Store, Action } from '@ngrx/store'
 
 import { MaterialModule } from '../material/material.module'
 import { reducers, metaReducers, AppState } from '../shared/reducers'
@@ -36,17 +36,21 @@ describe('OptionsComponent', () => {
   })
 
   describe('should dispact actions', () => {
-    let actionDispatched: any
+    let actionsDispatched: Action[]
 
     beforeEach(() => {
-      spyOn(store, 'dispatch').and.callFake(action => actionDispatched = action)
+      actionsDispatched = []
+      spyOn(store, 'dispatch').and.callFake(action => actionsDispatched.push(action))
     })
 
     it('change times', () => {
       component.newMultiplier(1)
-      expect(actionDispatched.type).toEqual('[Config] Set')
-      expect((actionDispatched as ConfigSet).key).toEqual('times')
-      expect((actionDispatched as ConfigSet).value).toEqual(1)
+
+      expect(actionsDispatched[0].type).toEqual('[Timer] Reset')
+
+      expect(actionsDispatched[1].type).toEqual('[Config] Set')
+      expect((actionsDispatched[1] as ConfigSet).key).toEqual('times')
+      expect((actionsDispatched[1] as ConfigSet).value).toEqual(1)
     })
   })
 })

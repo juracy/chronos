@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store'
 import { AppState } from '../shared/reducers'
 import { ConfigSet } from '../shared/config/config.actions'
 import { TimerState } from '../shared/reducers/timer.reducer'
+import { TimerReset } from '../shared/actions/timer.actions';
 
 @Component({
   selector: 'chronos-options',
@@ -27,6 +28,7 @@ export class OptionsComponent {
   }
 
   newMultiplier(times: number) {
+    this.store.dispatch(new TimerReset())
     this.store.dispatch(new ConfigSet('times', times))
   }
 }
