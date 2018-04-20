@@ -1,11 +1,28 @@
-<div fxLayout="row" fxLayoutAlign="center center">
-  <h1>
-    <chronos-title></chronos-title>
-  </h1>
+<div fxLayout="column" fxFlex="100%" fxLayoutAlign="space-between stretch" class="full-height">
+  <header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <chronos-title></chronos-title>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+
+  <div fxFlex="grow">
+    <chronos-timer></chronos-timer>
+    <chronos-controls></chronos-controls>
+    <chronos-options></chronos-options>
+
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+        <span fxLayoutAlign="space-between center">
+          <mat-icon>label</mat-icon>&nbsp;<span>1.0</span>
+        </span>
+        <span>Juracy Filho</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </footer>
 </div>
-
-<chronos-timer></chronos-timer>
-<chronos-controls></chronos-controls>
-<chronos-options></chronos-options>
-
-<router-outlet></router-outlet>

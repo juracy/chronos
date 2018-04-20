@@ -22,6 +22,9 @@ describe('AppComponent', () => {
         Component({selector: 'chronos-controls', template: ''}) (class MockControlsComponent { }),
         Component({selector: 'chronos-options', template: ''}) (class MockOptionsComponent { }),
         Component({selector: 'chronos-title', template: 'Chronos Logger'}) (class MockTitleComponent { }),
+        Component({selector: 'mat-toolbar', template: '<ng-content></ng-content>'}) (class MockMaterialToolbarComponent { }),
+        Component({selector: 'mat-toolbar-row', template: '<ng-content></ng-content>'}) (class MockMaterialToolbarRowComponent { }),
+        Component({selector: 'mat-icon', template: ''}) (class MockMaterialIconComponent { }),
       ],
     }).compileComponents()
 
@@ -34,10 +37,11 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance
     expect(app).toBeTruthy()
   }))
-  it('should render title in a h1 tag', async(() => {
+  it('should render title in a Toolbar tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
     const compiled = fixture.debugElement.nativeElement
-    expect(compiled.querySelector('h1').textContent).toContain('Chronos')
+    const elem = compiled.querySelector('header')
+    expect(elem.textContent).toContain('Chronos')
   }))
 })
