@@ -1,5 +1,6 @@
 {
   "name": "Chronos Logger",
+  "short_name": "Chronos",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "fullscreen",
