@@ -7,5 +7,5 @@ import { Component, ChangeDetectionStrategy } from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  version = '1.2'
+  version = '1.3'
 }
