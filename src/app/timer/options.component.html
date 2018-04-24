@@ -1,17 +1,17 @@
-<div fxLayoutAlign="space-between center">
+<div fxLayoutAlign="space-around center">
 
   <mat-button-toggle-group [disabled]="(timer | async)?.running" (change)="newMultiplier($event.value)" [value]="1">
     <mat-button-toggle [value]="1/300">
-      Test
+      ⇶
     </mat-button-toggle>
     <mat-button-toggle [value]="1/2">
-      Half
+      ½
     </mat-button-toggle>
     <mat-button-toggle [value]="1">
-      Full
+      1×
     </mat-button-toggle>
     <mat-button-toggle [value]="2">
-      Double
+      2×
     </mat-button-toggle>
   </mat-button-toggle-group>
 
