@@ -1,27 +1,34 @@
 # Chronos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-rc.0.
+## TODO
 
-## Development server
+### Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Play/Pause/Resume
+* Explicit end of session (registering a log)
+* Display log (start time, end time, duration)
+* Project support
+* Browser notification after time's up
+* Change time slot duration
+* Service Worker: Notification in footer about new version
+* Landscape support (new layout)
+* Animations
+* Negative timer, waiting for explicit end
+* Automatic stop after certain negative timer limit
 
-## Code scaffolding
+### Improvements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Don't show current timer in page title when stopped
+* Better icon
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Bugs
 
-## Running unit tests
+* Fix sound in chrome for android
 
-Run `yarn test` to execute the unit tests via [Jest](https://facebook.github.io/jest/).
 
-## Running end-to-end tests
+### CI
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Github pages
+* Travis for CI
+* Build time e git hash
