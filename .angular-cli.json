@@ -21,6 +21,7 @@
       "prefix": "app",
       "serviceWorker": true,
       "styles": [
+        "../node_modules/normalize.css/normalize.css",
         "styles.scss"
       ],
       "scripts": [],

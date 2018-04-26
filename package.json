@@ -37,6 +37,7 @@
     "@ngrx/store": "^6.0.0-beta.1",
     "@ngrx/store-devtools": "^6.0.0-beta.1",
     "core-js": "^2.4.1",
+    "normalize.css": "^8.0.0",
     "numeral": "^2.0.6",
     "rxjs": "^6.0.0-rc.0",
     "rxjs-compat": "^6.0.0-beta.1",
