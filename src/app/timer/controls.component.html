@@ -2,12 +2,14 @@
   <button
     mat-button
     color="primary"
+    class="double-size"
     [disabled]="(timer | async)?.running"
     (click)="start()">Start</button>
 
   <button
     mat-button
     color="warn"
+    class="double-size"
     [disabled]="!(timer | async)?.running"
     (click)="stop()">Stop</button>
 </div>
