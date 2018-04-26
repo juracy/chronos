@@ -2,6 +2,9 @@
 
 Chronos Logger is a simple Angular 6 application with enterprise features. It's used for study of new and advanced, technologies and tecniques with Angular.
 
+It's a pomodoro like timer with enfase in focus and productive time. Doesn't matter the duration of breaks ;)
+
+
 ## Application
 
 ### Libraries, components and angular tecniques
@@ -34,7 +37,8 @@ Chronos Logger is a simple Angular 6 application with enterprise features. It's 
 * Animations
 * Negative timer, waiting for explicit end
 * Automatic stop after certain negative timer limit
-* Persist data on localStorage
+* Persist data (on localStorage, firebase, etc)
+* Shortcuts, with global shortcuts support
 * Google Analytics support
 * External configuration: Same bundle several targets with different configuration - Feature Toggle?
 
