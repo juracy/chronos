@@ -39,6 +39,9 @@ It's a pomodoro like timer with enfase in focus and productive time. Doesn't mat
 * Automatic stop after certain negative timer limit
 * Persist data (on localStorage, firebase, etc)
 * Shortcuts, with global shortcuts support
+* OAuth authentication (google maybe)
+* Localization
+* Translations
 * Google Analytics support
 * External configuration: Same bundle several targets with different configuration - Feature Toggle?
 
