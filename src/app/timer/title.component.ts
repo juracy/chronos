@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { tap, takeUntil } from 'rxjs/operators'
 import { Subject } from 'rxjs/Subject'
@@ -11,6 +11,7 @@ import { FormatTimerPipe } from './format-timer.pipe'
 @Component({
   selector: 'chronos-title',
   template: '{{title}}',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TitleComponent implements OnInit, OnDestroy {
   destroy = new Subject<any>()
@@ -24,7 +25,14 @@ export class TitleComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.store.select(state => state).pipe(
-      tap(x => this.titleService.setTitle(`${this.format.transform(x.config.slot * x.config.times - x.timer.tic)} - ${this.title}`)),
+      tap(state => {
+        let title = this.title
+        if (state.timer.running) {
+          title = `${this.format.transform(state.config.slot * state.config.times - state.timer.tic)} - ${title}`
+        }
+
+        this.titleService.setTitle(title)
+      }),
       takeUntil(this.destroy),
     ).subscribe()
   }
