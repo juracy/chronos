@@ -1,0 +1,75 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.png",
+        "/index.html",
+        "/inline.318b50c57b4eba3d437b.bundle.js",
+        "/main.4592f4d43242849f7262.bundle.js",
+        "/polyfills.b6b2cd0d4c472ac3ac12.bundle.js",
+        "/styles.55843685064ca729e7fc.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/mp3/alarm.mp3"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*"
+      ]
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
+    "/assets/icons/icon-128x128.png": "a84963649dfe3069613214bca425e98c716b2d47",
+    "/main.4592f4d43242849f7262.bundle.js": "5ee8763782e170d21a0b0a85248ec468b67a9bfe",
+    "/assets/icons/icon-144x144.png": "ff4423c5faec46efd4a12076d9767af52993230c",
+    "/polyfills.b6b2cd0d4c472ac3ac12.bundle.js": "b092f5c27ff4222179ae3e9e3164c8cc6caa09cf",
+    "/assets/icons/icon-152x152.png": "67c03fa24c557f92540b07ee22d9b8dd30b7c9d4",
+    "/styles.55843685064ca729e7fc.bundle.css": "4b15a5ccba4a430568b6d066440817be49983b71",
+    "/assets/icons/icon-192x192.png": "d0a3c7f382017efc5b88aa792d4b4ca315b469ff",
+    "/favicon.png": "a84963649dfe3069613214bca425e98c716b2d47",
+    "/assets/icons/icon-384x384.png": "d7a0082b291c36355de9fce206ff57380a93a643",
+    "/index.html": "c2563fabcc8276f090d02207545068478849db45",
+    "/assets/icons/icon-512x512.png": "530d007399d6a6b32a938eb889e8e1a0d66064df",
+    "/assets/icons/icon-72x72.png": "f738d369c41172d6c2f832c2d74f2c099319101a",
+    "/assets/icons/icon-96x96.png": "2506e00b95c16b3321462c656bad82048b9d7571",
+    "/assets/mp3/alarm.mp3": "a26bf8c5abf5871f641a4876b4f8b1e1d064138e"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
+}
