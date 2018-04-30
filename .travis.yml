@@ -4,6 +4,8 @@ node_js:
   - node
 
 script:
+  - yarn lint
+  - yarn test:ci
   - yarn build:gh-pages
 
 after_success:
