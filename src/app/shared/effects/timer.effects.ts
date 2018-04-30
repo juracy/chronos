@@ -45,7 +45,7 @@ export class TimerEffects {
   private alarm = new Audio()
 
   constructor(private actions: Actions, private store: Store<AppState>) {
-    this.alarm.src = '/assets/mp3/alarm.mp3'
+    this.alarm.src = 'assets/mp3/alarm.mp3'
   }
 
   play() {

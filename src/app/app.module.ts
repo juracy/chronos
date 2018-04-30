@@ -27,7 +27,7 @@ import { ConfigEffects } from './shared/config/config.effects'
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
     MaterialModule,
     TimerModule,
