@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - node
+
+script:
+  - yarn build:gh-pages
+
+after_success:
+  - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false"
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
