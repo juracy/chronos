@@ -40,3 +40,4 @@ Thumbs.db
 
 # Custom
 .env
+src/environments/consts.ts
