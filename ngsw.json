@@ -10,7 +10,7 @@
         "https://juracy.github.io/chronos/favicon.png",
         "https://juracy.github.io/chronos/index.html",
         "https://juracy.github.io/chronos/inline.318b50c57b4eba3d437b.bundle.js",
-        "https://juracy.github.io/chronos/main.e9d507011ec80e630c7d.bundle.js",
+        "https://juracy.github.io/chronos/main.0b402228f1240bc29212.bundle.js",
         "https://juracy.github.io/chronos/polyfills.b6b2cd0d4c472ac3ac12.bundle.js",
         "https://juracy.github.io/chronos/styles.55843685064ca729e7fc.bundle.css"
       ],
@@ -40,7 +40,7 @@
   "hashTable": {
     "https://juracy.github.io/chronos/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
     "https://juracy.github.io/chronos/assets/icons/icon-128x128.png": "a84963649dfe3069613214bca425e98c716b2d47",
-    "https://juracy.github.io/chronos/main.e9d507011ec80e630c7d.bundle.js": "5ee8763782e170d21a0b0a85248ec468b67a9bfe",
+    "https://juracy.github.io/chronos/main.0b402228f1240bc29212.bundle.js": "f9444ce7c654dbe9b89dc500d453b96746259bd3",
     "https://juracy.github.io/chronos/assets/icons/icon-144x144.png": "ff4423c5faec46efd4a12076d9767af52993230c",
     "https://juracy.github.io/chronos/polyfills.b6b2cd0d4c472ac3ac12.bundle.js": "b092f5c27ff4222179ae3e9e3164c8cc6caa09cf",
     "https://juracy.github.io/chronos/assets/icons/icon-152x152.png": "67c03fa24c557f92540b07ee22d9b8dd30b7c9d4",
@@ -48,7 +48,7 @@
     "https://juracy.github.io/chronos/assets/icons/icon-192x192.png": "d0a3c7f382017efc5b88aa792d4b4ca315b469ff",
     "https://juracy.github.io/chronos/favicon.png": "a84963649dfe3069613214bca425e98c716b2d47",
     "https://juracy.github.io/chronos/assets/icons/icon-384x384.png": "d7a0082b291c36355de9fce206ff57380a93a643",
-    "https://juracy.github.io/chronos/index.html": "ae0465a933ef46d7f4df8cd8a50a0986f2de8817",
+    "https://juracy.github.io/chronos/index.html": "b1c638a54ad0a8625d282da1ad352bcda2756c8b",
     "https://juracy.github.io/chronos/assets/icons/icon-512x512.png": "530d007399d6a6b32a938eb889e8e1a0d66064df",
     "https://juracy.github.io/chronos/assets/icons/icon-72x72.png": "f738d369c41172d6c2f832c2d74f2c099319101a",
     "https://juracy.github.io/chronos/assets/icons/icon-96x96.png": "2506e00b95c16b3321462c656bad82048b9d7571",
