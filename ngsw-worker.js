@@ -1758,8 +1758,8 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 const IDLE_THRESHOLD = 5000;
 const SUPPORTED_CONFIG_VERSION = 1;
 const NOTIFICATION_OPTION_NAMES = [
-    'actions', 'body', 'dir', 'icon', 'lang', 'renotify', 'requireInteraction', 'tag', 'vibrate',
-    'data'
+    'actions', 'badge', 'body', 'dir', 'icon', 'lang', 'renotify', 'requireInteraction', 'tag',
+    'vibrate', 'data'
 ];
 var DriverReadyState;
 (function (DriverReadyState) {
