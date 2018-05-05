@@ -14,7 +14,6 @@ export class TimerEffects {
   @Effect()
   start = this.actions.pipe(
     ofType(TimerActionTypes.TimerStart),
-    tap((x) => console.log(x.type)),
     concatMap(x => timer(1000, 1000).pipe(
       withLatestFrom(this.store),
       takeWhile(([timer_tic, store]) => store.timer.running),
