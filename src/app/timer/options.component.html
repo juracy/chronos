@@ -1,16 +1,16 @@
 <div fxLayoutAlign="space-around center">
 
-  <mat-button-toggle-group [disabled]="(timer | async)?.running" (change)="newMultiplier($event.value)" [value]="1">
-    <mat-button-toggle [value]="1/300">
+  <mat-button-toggle-group (change)="newMultiplier($event.value)" [value]="1">
+    <mat-button-toggle [value]="1/300" [disabled]="(timer | async)?.running">
       »
     </mat-button-toggle>
-    <mat-button-toggle [value]="1/2">
+    <mat-button-toggle [value]="1/2" [disabled]="(timer | async)?.running">
       ½
     </mat-button-toggle>
-    <mat-button-toggle [value]="1">
+    <mat-button-toggle [value]="1" [disabled]="(timer | async)?.running">
       1×
     </mat-button-toggle>
-    <mat-button-toggle [value]="2">
+    <mat-button-toggle [value]="2" [disabled]="(timer | async)?.running">
       2×
     </mat-button-toggle>
   </mat-button-toggle-group>
